@@ -7,6 +7,7 @@ Wzory te można później wykorzystać do tworzenia sztuki opartej na pixel-art,
  i inne dziedziny.
  
  Koncept:
+ 
 ![SmartSelect_20230316_132328_Samsung Notes](https://user-images.githubusercontent.com/35116333/225616211-5ab667f5-1802-405b-9237-197d3b9afe12.jpg)
 
 #### Wątki użyte w programie:
