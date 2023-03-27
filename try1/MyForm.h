@@ -11,10 +11,6 @@ namespace try1 {
 	using namespace System::Drawing;
 
 	
-
-	
-
-
 	/// <summary>
 	/// Summary for MyForm
 	/// </summary>
@@ -22,11 +18,9 @@ namespace try1 {
 	{
 		public:
 			
-			CSource* source;
 			MyForm(void)
 			{
 				InitializeComponent();
-				source = new CSource();
 				//
 				//TODO: Add the constructor code here
 				//
@@ -46,7 +40,7 @@ namespace try1 {
 				}
 			}
 		private: System::Windows::Forms::PictureBox^ pictureBox1;
-		private: System::Drawing::Color paintBrush;
+		public: System::Drawing::Color paintBrush;
 		protected:
 		private: System::Windows::Forms::Button^ button1;
 		private: System::Windows::Forms::Button^ button2;
@@ -229,21 +223,13 @@ namespace try1 {
 		// powiadom sluchacza o tym gdzie kliknieto i jaki byl kolor pedzla
 			//CSource source2 = *source;
 			printf("MyHandler1 was called vtycdtycycty");
-			__raise (*source).MyEvent(paintBrush.ToArgb());
-		}
-		public: CSource giveSource() {
-			return *source;
 		}
 
 
 
 	};
 
-	[event_source(native)]
-	class CSource {
-	public:
-		__event void MyEvent(int nValue);
-	};
+	
 	
 
 

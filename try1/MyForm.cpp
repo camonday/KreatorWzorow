@@ -16,17 +16,34 @@ public:
     }
 
 
-    void hookEvent(try1::CSource* pSource) {
-        __hook(&try1::CSource::MyEvent, pSource, &CReceiver::MyHandler1);
+    void hookEvent(CSource* pSource) {
+        __hook(&CSource::MyEvent, pSource, &CReceiver::MyHandler1);
     }
 
-    void unhookEvent(try1::CSource* pSource) {
-        __unhook(&try1::CSource::MyEvent, pSource, &CReceiver::MyHandler1);
+    void unhookEvent(CSource* pSource) {
+        __unhook(&CSource::MyEvent, pSource, &CReceiver::MyHandler1);
+    }
+};
+
+
+[event_source(native)]
+class CSource {
+public:
+    __event void MyEvent(int nValue);
+};
+
+public ref class Okienko : try1::MyForm {
+    CSource* source = new CSource;
+    void pictureBox1_DoubleClick() override {
+        __raise source->MyEvent(paintBrush.ToArgb());
+    }
+    public: CSource* getSource() {
+        return source;
     }
 };
 
 [STAThread]
-void main(array<String^>^ args)
+int main(array<String^>^ args)
 
 {
    // try1::CSource source;
@@ -37,17 +54,21 @@ void main(array<String^>^ args)
 
     Application::SetCompatibleTextRenderingDefault(false);
 
-    try1::MyForm form;
-    try1::CSource source = form.giveSource();
+    Okienko form;
+    CSource* source = form.getSource();
+   
     
 
 
 
-    receiver.hookEvent(&source);
+    receiver.hookEvent(source);
     Application::Run(% form);
-    receiver.unhookEvent(&source);
+    receiver.unhookEvent(source);
 
 
 
 }
 
+void CSource::MyEvent(int nValue)
+{
+}
