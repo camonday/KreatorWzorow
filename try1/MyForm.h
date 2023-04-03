@@ -220,9 +220,11 @@ namespace try1 {
 
 		
 		private: System::Void pictureBox1_DoubleClick(System::Object^ sender, System::EventArgs^ e) {
-		// powiadom sluchacza o tym gdzie kliknieto i jaki byl kolor pedzla
-			//CSource source2 = *source;
-			printf("MyHandler1 was called vtycdtycycty");
+			DoubleClick_toOverride();
+		}
+
+		public: virtual void DoubleClick_toOverride() {
+
 		}
 
 
