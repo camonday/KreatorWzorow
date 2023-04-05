@@ -223,11 +223,17 @@ namespace try1 {
 			DoubleClick_toOverride();
 		}
 
+		//
+		// ToDo: virtual destructor
+		//
 		public: virtual void DoubleClick_toOverride() {
 
 		}
 
-
+		//
+		// TODO: pictureBox image setter
+		// this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+		//
 
 	};
 
