@@ -1,7 +1,8 @@
 #include "MyForm.h"
+#include "Image.h"
 #include <stdio.h>
 #include <thread>
-//using namespace std;
+
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -63,9 +64,12 @@ public ref class Okienko : try1::MyForm {
 };
 
 [STAThread]
-int main(array<String^>^ args) {
+int main(cli::array<String^>^ args) {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
+
+    picture obraz;
+    obraz.newPicture("try.bmp");
 
     CReceiver receiver;
     Okienko form;
