@@ -85,6 +85,7 @@ namespace try1 {
 				this->pictureBox1->Location = System::Drawing::Point(44, 108);
 				this->pictureBox1->Name = L"pictureBox1";
 				this->pictureBox1->Size = System::Drawing::Size(305, 255);
+				this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 				this->pictureBox1->TabIndex = 1;
 				this->pictureBox1->TabStop = false;
 				this->pictureBox1->DoubleClick += gcnew System::EventHandler(this, &MyForm::pictureBox1_DoubleClick);
@@ -223,11 +224,17 @@ namespace try1 {
 			DoubleClick_toOverride();
 		}
 
+		//
+		// ToDo: virtual destructor
+		//
 		public: virtual void DoubleClick_toOverride() {
 
 		}
 
-
+		//
+		// TODO: pictureBox image setter
+		// this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+		//
 
 	};
 
