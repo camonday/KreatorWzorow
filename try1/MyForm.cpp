@@ -136,33 +136,45 @@ void ColourIn(int rValue, int gValue, int bValue, int posX, int posY, MyEventArg
             
             //printf("refresh\n");
             //semafor down
-
+            updatedImage = System::Drawing::Image::FromFile("C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp");
+            okienko->RefreshPicture(updatedImage);
+            delete updatedImage;
             _sleep(100);
 
         }
         //okienko->RefreshPicture();
+        
         for (int licz = 0; licz <= d; licz++, posY--) {
             obraz.fillSquare(posX, posY, rValue, gValue, bValue);
             //okienko->RefreshPicture();
             //printf("refresh\n");
+            updatedImage = System::Drawing::Image::FromFile("C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp");
+            okienko->RefreshPicture(updatedImage);
+            delete updatedImage;
             _sleep(100);
         }//okienko->RefreshPicture();
+       
         for (int licz = 0; licz <= d; licz++, posX--) {
             obraz.fillSquare(posX, posY, rValue, gValue, bValue);
             //okienko->RefreshPicture();
             //printf("refresh\n");
+            updatedImage = System::Drawing::Image::FromFile("C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp");
+            okienko->RefreshPicture(updatedImage);
+            delete updatedImage;
             _sleep(100);
         }
+        
         //okienko->RefreshPicture();
         for (int licz = 0; licz <= d; licz++, posY++) {
             obraz.fillSquare(posX, posY, rValue, gValue, bValue);
             //okienko->RefreshPicture();
             //printf("refresh\n");
+            updatedImage = System::Drawing::Image::FromFile("C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp");
+            okienko->RefreshPicture(updatedImage);
+            delete updatedImage;
             _sleep(100);
         }
-        updatedImage = System::Drawing::Image::FromFile("C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp");
-        okienko->RefreshPicture(updatedImage);
-        delete updatedImage;
+        
 
         // lower is example that threads run
         printf("%d.\n", rValue + gValue + bValue);
