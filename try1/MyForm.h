@@ -11,6 +11,8 @@ namespace try1 {
 	using namespace System::Drawing;
 
 	
+
+
 	/// <summary>
 	/// Summary for MyForm
 	/// </summary>
@@ -67,7 +69,6 @@ namespace try1 {
 			/// </summary>
 			void InitializeComponent(void)
 			{
-				System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 				this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 				this->button1 = (gcnew System::Windows::Forms::Button());
 				this->button2 = (gcnew System::Windows::Forms::Button());
@@ -81,12 +82,14 @@ namespace try1 {
 				// 
 				// pictureBox1
 				// 
-				this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-				this->pictureBox1->Location = System::Drawing::Point(44, 108);
+				this->pictureBox1->ImageLocation = L"C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp";
+				this->pictureBox1->Location = System::Drawing::Point(12, 23);
 				this->pictureBox1->Name = L"pictureBox1";
-				this->pictureBox1->Size = System::Drawing::Size(305, 255);
+				this->pictureBox1->Size = System::Drawing::Size(395, 372);
+				this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 				this->pictureBox1->TabIndex = 1;
 				this->pictureBox1->TabStop = false;
+				this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::pictureBox1_Click);
 				this->pictureBox1->DoubleClick += gcnew System::EventHandler(this, &MyForm::pictureBox1_DoubleClick);
 				// 
 				// button1
@@ -94,9 +97,9 @@ namespace try1 {
 				this->button1->BackColor = System::Drawing::Color::OrangeRed;
 				this->button1->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 				this->button1->FlatAppearance->BorderSize = 5;
-				this->button1->Location = System::Drawing::Point(429, 108);
+				this->button1->Location = System::Drawing::Point(429, 23);
 				this->button1->Name = L"button1";
-				this->button1->Size = System::Drawing::Size(85, 71);
+				this->button1->Size = System::Drawing::Size(104, 121);
 				this->button1->TabIndex = 2;
 				this->button1->Text = L"button1";
 				this->button1->UseVisualStyleBackColor = false;
@@ -105,9 +108,9 @@ namespace try1 {
 				// button2
 				// 
 				this->button2->BackColor = System::Drawing::Color::Yellow;
-				this->button2->Location = System::Drawing::Point(520, 108);
+				this->button2->Location = System::Drawing::Point(539, 23);
 				this->button2->Name = L"button2";
-				this->button2->Size = System::Drawing::Size(85, 71);
+				this->button2->Size = System::Drawing::Size(104, 121);
 				this->button2->TabIndex = 3;
 				this->button2->Text = L"button2";
 				this->button2->UseVisualStyleBackColor = false;
@@ -116,9 +119,9 @@ namespace try1 {
 				// button3
 				// 
 				this->button3->BackColor = System::Drawing::Color::Lime;
-				this->button3->Location = System::Drawing::Point(429, 185);
+				this->button3->Location = System::Drawing::Point(429, 150);
 				this->button3->Name = L"button3";
-				this->button3->Size = System::Drawing::Size(85, 71);
+				this->button3->Size = System::Drawing::Size(104, 110);
 				this->button3->TabIndex = 4;
 				this->button3->Text = L"button3";
 				this->button3->UseVisualStyleBackColor = false;
@@ -127,9 +130,9 @@ namespace try1 {
 				// button4
 				// 
 				this->button4->BackColor = System::Drawing::Color::Cyan;
-				this->button4->Location = System::Drawing::Point(520, 185);
+				this->button4->Location = System::Drawing::Point(539, 150);
 				this->button4->Name = L"button4";
-				this->button4->Size = System::Drawing::Size(85, 71);
+				this->button4->Size = System::Drawing::Size(104, 110);
 				this->button4->TabIndex = 5;
 				this->button4->Text = L"button4";
 				this->button4->UseVisualStyleBackColor = false;
@@ -138,9 +141,9 @@ namespace try1 {
 				// button5
 				// 
 				this->button5->BackColor = System::Drawing::Color::SaddleBrown;
-				this->button5->Location = System::Drawing::Point(429, 262);
+				this->button5->Location = System::Drawing::Point(429, 266);
 				this->button5->Name = L"button5";
-				this->button5->Size = System::Drawing::Size(85, 71);
+				this->button5->Size = System::Drawing::Size(104, 103);
 				this->button5->TabIndex = 6;
 				this->button5->Text = L"button5";
 				this->button5->UseVisualStyleBackColor = false;
@@ -149,9 +152,9 @@ namespace try1 {
 				// button6
 				// 
 				this->button6->BackColor = System::Drawing::Color::Magenta;
-				this->button6->Location = System::Drawing::Point(520, 262);
+				this->button6->Location = System::Drawing::Point(539, 266);
 				this->button6->Name = L"button6";
-				this->button6->Size = System::Drawing::Size(85, 71);
+				this->button6->Size = System::Drawing::Size(104, 103);
 				this->button6->TabIndex = 7;
 				this->button6->Text = L"button6";
 				this->button6->UseVisualStyleBackColor = false;
@@ -160,9 +163,9 @@ namespace try1 {
 				// textBox1
 				// 
 				this->textBox1->BackColor = System::Drawing::Color::Silver;
-				this->textBox1->Location = System::Drawing::Point(429, 343);
+				this->textBox1->Location = System::Drawing::Point(429, 375);
 				this->textBox1->Name = L"textBox1";
-				this->textBox1->Size = System::Drawing::Size(174, 20);
+				this->textBox1->Size = System::Drawing::Size(214, 20);
 				this->textBox1->TabIndex = 8;
 				// 
 				// MyForm
@@ -219,25 +222,59 @@ namespace try1 {
 		}
 
 		
+		
+
 		private: System::Void pictureBox1_DoubleClick(System::Object^ sender, System::EventArgs^ e) {
 			DoubleClick_toOverride();
+			//Refreshpicture();
+			
 		}
 
 		//
 		// ToDo: virtual destructor
 		//
-		public: virtual void DoubleClick_toOverride() {
+		public: 
+		virtual void DoubleClick_toOverride() {
 
 		}
+		int count = 1;
+		void RefreshPicture(Image^ newImage) {
+
+			if (pictureBox1->Image != nullptr) {
+				delete pictureBox1->Image;
+				pictureBox1->Image = nullptr;
+			}
+			pictureBox1->Image = newImage;
+
+
+			RefreshWrapper();
+			
+			
+		}
+
+		void RefreshWrapper() {
+
+			if (pictureBox1->InvokeRequired) {
+				pictureBox1->Invoke(gcnew MethodInvoker(this, &MyForm::RefreshWrapper));
+
+			}
+			else {
+				pictureBox1->Refresh();
+			}
+		}
+
+	
 
 		//
 		// TODO: pictureBox image setter
 		// this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 		//
 
-	};
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 
-	
+
 	
 
 
