@@ -83,7 +83,7 @@ string nazwa = "empty.bmp";
 		return 0;
 	}
 
-	int picture::fillSquare(int x, int y, int rValue, int gValue, int bValue) {
+	int picture::fillSquare(int y, int x, int rValue, int gValue, int bValue) {
 		
 		if ((x > 23) || (x < 1) || (y > 23) || (y < 1)) return 0;
 		if (!(isEqual(wzor[x][y], whitePixel))) return 0;

@@ -2,16 +2,22 @@
 #include "Image.h"
 #include <stdio.h>
 #include <thread>
+#include <vcclr.h>
+#include <windows.h>
 
+using namespace System::Threading;
 
 using namespace System;
 using namespace System::Windows::Forms;
 
 ref class MyEventArgs;
 ref class Okienko;
+ref class ManagedMutex;
 void ThreadFabric(int rValue, int gValue, int bValue, int posX, int posY, MyEventArgs^ args);
 void ColourIn(int rValue, int gValue, int bValue, int posX, int posY, MyEventArgs^ args);
+void Refresh(int posX, int posY, int rValue, int gValue, int bValue, picture obraz, MyEventArgs^ args);
 
+gcroot<Mutex^> mutex = gcnew Mutex();
 
 [event_source(native)]
 class CSource {
@@ -21,6 +27,7 @@ public:
 
 ref class MyEventArgs : public EventArgs {
 public:
+    
     Okienko^ okienko = nullptr;
 };
 
@@ -29,8 +36,10 @@ public ref class Okienko : try1::MyForm {
 
 public:
     void DoubleClick_toOverride() override {
-        MyEventArgs^ args = gcnew MyEventArgs();
-        args->okienko = this;
+        mutex->WaitOne();
+            MyEventArgs^ args = gcnew MyEventArgs();
+            args->okienko = this;
+        mutex->ReleaseMutex();
         __raise source->MyEvent(args);
     }
 
@@ -49,6 +58,7 @@ public:
 class CReceiver {
 public:
     void MyHandler1(MyEventArgs^ args) {
+        mutex->WaitOne();
         Okienko^ okienko = args->okienko;
         int rValue, gValue, bValue;
         okienko->giveColour(&rValue, &gValue, &bValue);
@@ -59,6 +69,7 @@ public:
         int posY = rand() % 25 + 1;
         // Here create a thread
         ThreadFabric(rValue, gValue, bValue, posX, posY, args);
+        mutex->ReleaseMutex();
     }
 
     void hookEvent(CSource* pSource) {
@@ -112,75 +123,66 @@ void ThreadFabric(int rValue, int gValue, int bValue, int posX, int posY, MyEven
 void ColourIn(int rValue, int gValue, int bValue, int posX, int posY, MyEventArgs^ args) {
     printf("thread was called with value %d.\n", rValue + gValue + bValue);
     picture obraz;
-    Okienko^ okienko = args->okienko;
-    System::Drawing::Image^ updatedImage; // = System::Drawing::Image::FromFile("C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp");
+    
+    //System::Drawing::Image^ updatedImage; // = System::Drawing::Image::FromFile("C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp");
     
 
     int d = 0;
-
+    Refresh(posX, posY, rValue, gValue, bValue, obraz, args);
 
     while (true) {
         //update canva
-
-        obraz.fillSquare(posX, posY, rValue, gValue, bValue);
-
-
+        //obraz.fillSquare(posX, posY, rValue, gValue, bValue);
+        Refresh(posX, posY, rValue, gValue, bValue, obraz, args);
         posY += 1;
-        obraz.fillSquare(posX, posY, rValue, gValue, bValue);
-
+        Refresh(posX, posY, rValue, gValue, bValue, obraz, args);
 
         d += 2;
-        for (int licz = 1; licz <= d; licz++, posX++) {
-            //semafor up
-            obraz.fillSquare(posX, posY, rValue, gValue, bValue);
-            
-            //printf("refresh\n");
-            //semafor down
-            updatedImage = System::Drawing::Image::FromFile("C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp");
-            okienko->RefreshPicture(updatedImage);
-            delete updatedImage;
-            _sleep(100);
-
+        for (int licz = 1; licz < d; licz++, posX++) {
+            Refresh(posX, posY, rValue, gValue, bValue, obraz, args);
         }
-        //okienko->RefreshPicture();
-        
-        for (int licz = 0; licz <= d; licz++, posY--) {
-            obraz.fillSquare(posX, posY, rValue, gValue, bValue);
-            //okienko->RefreshPicture();
-            //printf("refresh\n");
-            updatedImage = System::Drawing::Image::FromFile("C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp");
-            okienko->RefreshPicture(updatedImage);
-            delete updatedImage;
-            _sleep(100);
-        }//okienko->RefreshPicture();
+
+        for (int licz = 0; licz < d; licz++, posY--) {
+            Refresh(posX, posY, rValue, gValue, bValue, obraz, args);
+        }
        
-        for (int licz = 0; licz <= d; licz++, posX--) {
-            obraz.fillSquare(posX, posY, rValue, gValue, bValue);
-            //okienko->RefreshPicture();
-            //printf("refresh\n");
-            updatedImage = System::Drawing::Image::FromFile("C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp");
-            okienko->RefreshPicture(updatedImage);
-            delete updatedImage;
-            _sleep(100);
+        for (int licz = 0; licz < d; licz++, posX--) {
+            Refresh(posX, posY, rValue, gValue, bValue, obraz, args);
+        }
+        for (int licz = 0; licz < d; licz++, posY++) {
+            Refresh(posX, posY, rValue, gValue, bValue, obraz, args);
         }
         
-        //okienko->RefreshPicture();
-        for (int licz = 0; licz <= d; licz++, posY++) {
-            obraz.fillSquare(posX, posY, rValue, gValue, bValue);
-            //okienko->RefreshPicture();
-            //printf("refresh\n");
-            updatedImage = System::Drawing::Image::FromFile("C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp");
-            okienko->RefreshPicture(updatedImage);
-            delete updatedImage;
-            _sleep(100);
-        }
-        
-
         // lower is example that threads run
         printf("%d.\n", rValue + gValue + bValue);
     }
     
 
+
+}
+
+void Refresh(int posX, int posY, int rValue, int gValue, int bValue, picture obraz, MyEventArgs^ args) {
+     
+    
+ 
+    String^ path = "C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp";
+
+    obraz.fillSquare(posX, posY, rValue, gValue, bValue);
+
+    mutex->WaitOne();
+       // printf("args = %p\n", args);
+        Okienko^ okienko = args->okienko;
+
+        GC::Collect();
+        System::Drawing::Image^ updatedImage;
+        updatedImage = System::Drawing::Image::FromFile(path);
+        okienko->RefreshPicture(updatedImage);
+        delete updatedImage;
+        
+
+   mutex->ReleaseMutex();
+
+    _sleep(100);
 
 }
 
