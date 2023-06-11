@@ -167,7 +167,9 @@ void Refresh(int posX, int posY, int rValue, int gValue, int bValue, picture obr
  
     String^ path = "C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp";
 
+    mutex->WaitOne();
     obraz.fillSquare(posX, posY, rValue, gValue, bValue);
+    mutex->ReleaseMutex();
 
     mutex->WaitOne();
        // printf("args = %p\n", args);
