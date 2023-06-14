@@ -14,20 +14,30 @@ using namespace System::Windows::Forms;
 void ColourIn(int rValue, int gValue, int bValue, int posX, int posY) {
     printf("thread was called with value %d.\n", rValue+gValue+bValue);
     
-   
-
-
-
-    
+    int d = 0;
+    picture obraz;
+    obraz.fillSquare(posX, posY, rValue, gValue, bValue);
     while (true) {
         //update canva
-        picture obraz;
+        
         obraz.fillSquare(posX, posY, rValue, gValue, bValue);
+        posY += 1;
+        obraz.fillSquare(posX, posY, rValue, gValue, bValue);
+        d += 2;
+        for (int licz = 1; licz < d; licz++, posX++) {
+            obraz.fillSquare(posX, posY, rValue, gValue, bValue);
+        }
 
-        // find way in which to change posX, posY
-        posX+= rand() % 3 - 1;
-        posY+= rand() % 3 - 1;
+        for (int licz = 0; licz < d; licz++, posY--) {
+            obraz.fillSquare(posX, posY, rValue, gValue, bValue);
+        }
 
+        for (int licz = 0; licz < d; licz++, posX--) {
+            obraz.fillSquare(posX, posY, rValue, gValue, bValue);
+        }
+        for (int licz = 0; licz < d; licz++, posY++) {
+            obraz.fillSquare(posX, posY, rValue, gValue, bValue);
+        }
         _sleep(1000);
 
         // lower is example that threads run
