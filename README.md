@@ -1,3 +1,6 @@
+# Opis Wersji
+W tej wersji tworzą się losowe wzory z dowolną ilością kolorów, ale obraz nie odświeża się. Są różne podejścia jak zrealizować odświeżanie i na ten moment, żadne z nich nie przyniosło efektów, dlatego ta wersja jest najświeższą reprezentatywną wersją
+
 # KreatorWzorow
 Ta aplikacja służy do tworzenia abstrakcyjnych wzorów. 
 Wzory te można później wykorzystać do tworzenia sztuki opartej na pixel-art, na przykład
