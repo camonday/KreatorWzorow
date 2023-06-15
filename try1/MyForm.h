@@ -69,125 +69,127 @@ namespace try1 {
 			/// </summary>
 			void InitializeComponent(void)
 			{
-				this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-				this->button1 = (gcnew System::Windows::Forms::Button());
-				this->button2 = (gcnew System::Windows::Forms::Button());
-				this->button3 = (gcnew System::Windows::Forms::Button());
-				this->button4 = (gcnew System::Windows::Forms::Button());
-				this->button5 = (gcnew System::Windows::Forms::Button());
-				this->button6 = (gcnew System::Windows::Forms::Button());
-				this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-				(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-				this->SuspendLayout();
-				// 
-				// pictureBox1
-				// 
-				this->pictureBox1->ImageLocation = L"C:\\Users\\arkad\\source\\repos\\try1\\try1\\try4.bmp";
-				this->pictureBox1->Location = System::Drawing::Point(12, 23);
-				this->pictureBox1->Name = L"pictureBox1";
-				this->pictureBox1->Size = System::Drawing::Size(395, 372);
-				this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-				this->pictureBox1->TabIndex = 1;
-				this->pictureBox1->TabStop = false;
-				this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::pictureBox1_Click);
-				this->pictureBox1->DoubleClick += gcnew System::EventHandler(this, &MyForm::pictureBox1_DoubleClick);
-				// 
-				// button1
-				// 
-				this->button1->BackColor = System::Drawing::Color::OrangeRed;
-				this->button1->FlatAppearance->BorderColor = System::Drawing::Color::Black;
-				this->button1->FlatAppearance->BorderSize = 5;
-				this->button1->Location = System::Drawing::Point(429, 23);
-				this->button1->Name = L"button1";
-				this->button1->Size = System::Drawing::Size(104, 121);
-				this->button1->TabIndex = 2;
-				this->button1->Text = L"button1";
-				this->button1->UseVisualStyleBackColor = false;
-				this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-				// 
-				// button2
-				// 
-				this->button2->BackColor = System::Drawing::Color::Yellow;
-				this->button2->Location = System::Drawing::Point(539, 23);
-				this->button2->Name = L"button2";
-				this->button2->Size = System::Drawing::Size(104, 121);
-				this->button2->TabIndex = 3;
-				this->button2->Text = L"button2";
-				this->button2->UseVisualStyleBackColor = false;
-				this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
-				// 
-				// button3
-				// 
-				this->button3->BackColor = System::Drawing::Color::Lime;
-				this->button3->Location = System::Drawing::Point(429, 150);
-				this->button3->Name = L"button3";
-				this->button3->Size = System::Drawing::Size(104, 110);
-				this->button3->TabIndex = 4;
-				this->button3->Text = L"button3";
-				this->button3->UseVisualStyleBackColor = false;
-				this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
-				// 
-				// button4
-				// 
-				this->button4->BackColor = System::Drawing::Color::Cyan;
-				this->button4->Location = System::Drawing::Point(539, 150);
-				this->button4->Name = L"button4";
-				this->button4->Size = System::Drawing::Size(104, 110);
-				this->button4->TabIndex = 5;
-				this->button4->Text = L"button4";
-				this->button4->UseVisualStyleBackColor = false;
-				this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
-				// 
-				// button5
-				// 
-				this->button5->BackColor = System::Drawing::Color::SaddleBrown;
-				this->button5->Location = System::Drawing::Point(429, 266);
-				this->button5->Name = L"button5";
-				this->button5->Size = System::Drawing::Size(104, 103);
-				this->button5->TabIndex = 6;
-				this->button5->Text = L"button5";
-				this->button5->UseVisualStyleBackColor = false;
-				this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
-				// 
-				// button6
-				// 
-				this->button6->BackColor = System::Drawing::Color::Magenta;
-				this->button6->Location = System::Drawing::Point(539, 266);
-				this->button6->Name = L"button6";
-				this->button6->Size = System::Drawing::Size(104, 103);
-				this->button6->TabIndex = 7;
-				this->button6->Text = L"button6";
-				this->button6->UseVisualStyleBackColor = false;
-				this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
-				// 
-				// textBox1
-				// 
-				this->textBox1->BackColor = System::Drawing::Color::Silver;
-				this->textBox1->Location = System::Drawing::Point(429, 375);
-				this->textBox1->Name = L"textBox1";
-				this->textBox1->Size = System::Drawing::Size(214, 20);
-				this->textBox1->TabIndex = 8;
-				// 
-				// MyForm
-				// 
-				this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-				this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-				this->ClientSize = System::Drawing::Size(665, 439);
-				this->Controls->Add(this->textBox1);
-				this->Controls->Add(this->button6);
-				this->Controls->Add(this->button5);
-				this->Controls->Add(this->button4);
-				this->Controls->Add(this->button3);
-				this->Controls->Add(this->button2);
-				this->Controls->Add(this->button1);
-				this->Controls->Add(this->pictureBox1);
-				this->Name = L"MyForm";
-				this->Text = L"MyForm";
-				(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-				this->ResumeLayout(false);
-				this->PerformLayout();
+                System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+                this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+                this->button1 = (gcnew System::Windows::Forms::Button());
+                this->button2 = (gcnew System::Windows::Forms::Button());
+                this->button3 = (gcnew System::Windows::Forms::Button());
+                this->button4 = (gcnew System::Windows::Forms::Button());
+                this->button5 = (gcnew System::Windows::Forms::Button());
+                this->button6 = (gcnew System::Windows::Forms::Button());
+                this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+                this->SuspendLayout();
+                // 
+                // pictureBox1
+                // 
+                this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"C:\\Users\\arkad\\Source\\Repos\\camonday\\KreatorWzorowClean\\try1\\try4.bmp")));
+                this->pictureBox1->ImageLocation = L"try4.bmp";
+                this->pictureBox1->Location = System::Drawing::Point(12, 23);
+                this->pictureBox1->Name = L"pictureBox1";
+                this->pictureBox1->Size = System::Drawing::Size(395, 372);
+                this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+                this->pictureBox1->TabIndex = 1;
+                this->pictureBox1->TabStop = false;
+                this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::pictureBox1_Click);
+                this->pictureBox1->DoubleClick += gcnew System::EventHandler(this, &MyForm::pictureBox1_DoubleClick);
+                // 
+                // button1
+                // 
+                this->button1->BackColor = System::Drawing::Color::OrangeRed;
+                this->button1->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+                this->button1->FlatAppearance->BorderSize = 5;
+                this->button1->Location = System::Drawing::Point(429, 23);
+                this->button1->Name = L"button1";
+                this->button1->Size = System::Drawing::Size(104, 121);
+                this->button1->TabIndex = 2;
+                this->button1->Text = L"button1";
+                this->button1->UseVisualStyleBackColor = false;
+                this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+                // 
+                // button2
+                // 
+                this->button2->BackColor = System::Drawing::Color::Yellow;
+                this->button2->Location = System::Drawing::Point(539, 23);
+                this->button2->Name = L"button2";
+                this->button2->Size = System::Drawing::Size(104, 121);
+                this->button2->TabIndex = 3;
+                this->button2->Text = L"button2";
+                this->button2->UseVisualStyleBackColor = false;
+                this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+                // 
+                // button3
+                // 
+                this->button3->BackColor = System::Drawing::Color::Lime;
+                this->button3->Location = System::Drawing::Point(429, 150);
+                this->button3->Name = L"button3";
+                this->button3->Size = System::Drawing::Size(104, 110);
+                this->button3->TabIndex = 4;
+                this->button3->Text = L"button3";
+                this->button3->UseVisualStyleBackColor = false;
+                this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
+                // 
+                // button4
+                // 
+                this->button4->BackColor = System::Drawing::Color::Cyan;
+                this->button4->Location = System::Drawing::Point(539, 150);
+                this->button4->Name = L"button4";
+                this->button4->Size = System::Drawing::Size(104, 110);
+                this->button4->TabIndex = 5;
+                this->button4->Text = L"button4";
+                this->button4->UseVisualStyleBackColor = false;
+                this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+                // 
+                // button5
+                // 
+                this->button5->BackColor = System::Drawing::Color::SaddleBrown;
+                this->button5->Location = System::Drawing::Point(429, 266);
+                this->button5->Name = L"button5";
+                this->button5->Size = System::Drawing::Size(104, 103);
+                this->button5->TabIndex = 6;
+                this->button5->Text = L"button5";
+                this->button5->UseVisualStyleBackColor = false;
+                this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+                // 
+                // button6
+                // 
+                this->button6->BackColor = System::Drawing::Color::Magenta;
+                this->button6->Location = System::Drawing::Point(539, 266);
+                this->button6->Name = L"button6";
+                this->button6->Size = System::Drawing::Size(104, 103);
+                this->button6->TabIndex = 7;
+                this->button6->Text = L"button6";
+                this->button6->UseVisualStyleBackColor = false;
+                this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
+                // 
+                // textBox1
+                // 
+                this->textBox1->BackColor = System::Drawing::Color::Silver;
+                this->textBox1->Location = System::Drawing::Point(429, 375);
+                this->textBox1->Name = L"textBox1";
+                this->textBox1->Size = System::Drawing::Size(214, 20);
+                this->textBox1->TabIndex = 8;
+                // 
+                // MyForm
+                // 
+                this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+                this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+                this->ClientSize = System::Drawing::Size(665, 439);
+                this->Controls->Add(this->textBox1);
+                this->Controls->Add(this->button6);
+                this->Controls->Add(this->button5);
+                this->Controls->Add(this->button4);
+                this->Controls->Add(this->button3);
+                this->Controls->Add(this->button2);
+                this->Controls->Add(this->button1);
+                this->Controls->Add(this->pictureBox1);
+                this->Name = L"MyForm";
+                this->Text = L"MyForm";
+                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+                this->ResumeLayout(false);
+                this->PerformLayout();
 
-			}
+            }
 #pragma endregion
 		private: void textBox1_ChangeColor() {
 			textBox1->BackColor = paintBrush;
@@ -239,15 +241,19 @@ namespace try1 {
 		}
 		int count = 1;
 		void RefreshPicture(Image^ newImage) {
+            printf("REFRESH_h 1\n");
 
 			if (pictureBox1->Image != nullptr) {
 				delete pictureBox1->Image;
 				pictureBox1->Image = nullptr;
+                printf("REFRESH_h if\n");
 			}
-			pictureBox1->Image = newImage;
+			//pictureBox1->Image = newImage;
+            printf("REFRESH_h 2\n");
+            pictureBox1->Load();
+            printf("REFRESH_h 3\n");
 
-
-			RefreshWrapper();
+			//RefreshWrapper();
 			
 			
 		}
@@ -262,6 +268,10 @@ namespace try1 {
 				pictureBox1->Refresh();
 			}
 		}
+
+        void HelloWorld() {
+
+        }
 
 	
 
