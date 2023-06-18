@@ -110,7 +110,8 @@ Pixel wzor[25][25];
         for (int i = 0; i < bmpInfoHeader.width; i++) {
             for (int j = 0; j < bmpInfoHeader.height; j++)
                 fout.write(reinterpret_cast<char*>(&(obraz[i][j])), 3);
-                // ^^^kolory zapisywane sa odtylu dlatego podajemy bgr a nie rgb
+                // ^^^  data is written in backwards, thats why we write BGR
+                //      instead of RGB
         }
         fout.close();
         return 0;

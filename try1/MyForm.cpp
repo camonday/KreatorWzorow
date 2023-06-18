@@ -159,6 +159,7 @@ void Paint(MyEventArgs^ args) {
        printf("\npaint\n");
        // Mutex is free, perform refresh
        // args->okienko->RefreshPicture(System::Drawing::Image::FromFile("try4.bmp"));
+       // Above makes bmp file to not refresh
 
        // Release the mutex
        mutex->ReleaseMutex();

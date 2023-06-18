@@ -229,20 +229,23 @@ namespace try1 {
                 pictureBox1->Image = nullptr;
                 printf("REFRESH_h if\n");
             }
-            // pictureBox1->Image = newImage;
+            pictureBox1->Image = newImage;
             printf("REFRESH_h 2\n");
             pictureBox1->Load();
             printf("REFRESH_h 3\n");
 
-            // RefreshWrapper();
+            //RefreshWrapper();
         }
 
         void RefreshWrapper() {
             if (pictureBox1->InvokeRequired) {
+                printf("REFRESH_h y\n");
                 pictureBox1->Invoke(gcnew MethodInvoker
                                    (this, &MyForm::RefreshWrapper));
+                // above freezes program
             } else {
                 pictureBox1->Refresh();
+                printf("REFRESH_h x\n");
             }
         }
 
