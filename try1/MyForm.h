@@ -1,74 +1,59 @@
+//  Copyright [2023] <Arkadia Kowalczyk>
 #pragma once
 #include <stdio.h>
 
 namespace try1 {
+    using namespace System;
+    using namespace System::ComponentModel;
+    using namespace System::Collections;
+    using namespace System::Windows::Forms;
+    using namespace System::Data;
+    using namespace System::Drawing;
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
+    /// <summary>
+    /// Summary for MyForm
+    /// </summary>
+    public ref class MyForm : public System::Windows::Forms::Form{
+        public:
+            MyForm(void) {
+                InitializeComponent();
+                //
+                // TODO(camonday): Add the constructor code here
+                //
+            }
 
-	
-
-
-	/// <summary>
-	/// Summary for MyForm
-	/// </summary>
-	public ref class MyForm : public System::Windows::Forms::Form
-	{
-		public:
-			
-			MyForm(void)
-			{
-				InitializeComponent();
-				//
-				//TODO: Add the constructor code here
-				//
-			}
-			
-
-
-		protected:
-			/// <summary>
-			/// Clean up any resources being used.
-			/// </summary>
-			~MyForm()
-			{
-				if (components)
-				{
-					delete components;
-				}
-			}
-		private: System::Windows::Forms::PictureBox^ pictureBox1;
-		public: System::Drawing::Color paintBrush;
-		protected:
-		private: System::Windows::Forms::Button^ button1;
-		private: System::Windows::Forms::Button^ button2;
-		private: System::Windows::Forms::Button^ button3;
-		private: System::Windows::Forms::Button^ button4;
-		private: System::Windows::Forms::Button^ button5;
-		private: System::Windows::Forms::Button^ button6;
-		private: System::Windows::Forms::TextBox^ textBox1;
-
-
-
-		protected:
-
-		private:
-			/// <summary>
-			/// Required designer variable.
-			/// </summary>
-			System::ComponentModel::Container^ components;
+        protected:
+            /// <summary>
+            /// Clean up any resources being used.
+            /// </summary>
+            ~MyForm() {
+                if (components) {
+                    delete components;
+                }
+            }
+        private: System::Windows::Forms::PictureBox^ pictureBox1;
+        public: System::Drawing::Color paintBrush;
+        protected:
+        private: System::Windows::Forms::Button^ button1;
+        private: System::Windows::Forms::Button^ button2;
+        private: System::Windows::Forms::Button^ button3;
+        private: System::Windows::Forms::Button^ button4;
+        private: System::Windows::Forms::Button^ button5;
+        private: System::Windows::Forms::Button^ button6;
+        private: System::Windows::Forms::TextBox^ textBox1;
+        protected:
+        private:
+            /// <summary>
+            /// Required designer variable.
+            /// </summary>
+            System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-			/// <summary>
-			/// Required method for Designer support - do not modify
-			/// the contents of this method with the code editor.
-			/// </summary>
-			void InitializeComponent(void)
-			{
+            /// <summary>
+            /// Required method for Designer support - do not modify
+            /// the contents of this method with the code editor.
+            /// </summary>
+            void InitializeComponent(void) {
                 System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
                 this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
                 this->button1 = (gcnew System::Windows::Forms::Button());
@@ -83,7 +68,7 @@ namespace try1 {
                 // 
                 // pictureBox1
                 // 
-                this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"C:\\Users\\arkad\\Source\\Repos\\camonday\\KreatorWzorowClean\\try1\\try4.bmp")));
+                this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
                 this->pictureBox1->ImageLocation = L"try4.bmp";
                 this->pictureBox1->Location = System::Drawing::Point(12, 23);
                 this->pictureBox1->Name = L"pictureBox1";
@@ -191,103 +176,78 @@ namespace try1 {
 
             }
 #pragma endregion
-		private: void textBox1_ChangeColor() {
-			textBox1->BackColor = paintBrush;
-		}
-		private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-			paintBrush = this->button1->BackColor;
-			MyForm::paintButton_Click();
-		}
-		private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-			paintBrush = this->button2->BackColor;
-			MyForm::paintButton_Click();
-		}
-		private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-			paintBrush = this->button3->BackColor;
-			MyForm::paintButton_Click();
-		}
-		private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-			paintBrush = this->button4->BackColor;
-			MyForm::paintButton_Click();
-		}
-		private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
-			paintBrush = this->button5->BackColor;
-			MyForm::paintButton_Click();
-		}
-		private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
-			paintBrush = this->button6->BackColor;
-			MyForm::paintButton_Click();
-		}
-		
-		private: void paintButton_Click() {
-			MyForm::textBox1_ChangeColor();
-		}
+        private: void textBox1_ChangeColor() {
+            textBox1->BackColor = paintBrush;
+        }
+        private: System::Void button1_Click(System::Object^ sender,
+                                            System::EventArgs^ e) {
+            paintBrush = this->button1->BackColor;
+            MyForm::paintButton_Click();
+        }
+        private: System::Void button2_Click(System::Object^ sender,
+                                            System::EventArgs^ e) {
+            paintBrush = this->button2->BackColor;
+            MyForm::paintButton_Click();
+        }
+        private: System::Void button3_Click(System::Object^ sender,
+                                            System::EventArgs^ e) {
+            paintBrush = this->button3->BackColor;
+            MyForm::paintButton_Click();
+        }
+        private: System::Void button4_Click(System::Object^ sender,
+                                            System::EventArgs^ e) {
+            paintBrush = this->button4->BackColor;
+            MyForm::paintButton_Click();
+        }
+        private: System::Void button5_Click(System::Object^ sender,
+                                            System::EventArgs^ e) {
+            paintBrush = this->button5->BackColor;
+            MyForm::paintButton_Click();
+        }
+        private: System::Void button6_Click(System::Object^ sender,
+                                            System::EventArgs^ e) {
+            paintBrush = this->button6->BackColor;
+            MyForm::paintButton_Click();
+        }
+        private: void paintButton_Click() {
+            MyForm::textBox1_ChangeColor();
+        }
+        private: System::Void pictureBox1_DoubleClick(System::Object^ sender,
+                                                      System::EventArgs^ e) {
+            DoubleClick_toOverride();
+        }
 
-		
-		
-
-		private: System::Void pictureBox1_DoubleClick(System::Object^ sender, System::EventArgs^ e) {
-			DoubleClick_toOverride();
-			//Refreshpicture();
-			
-		}
-
-		//
-		// ToDo: virtual destructor
-		//
-		public: 
-		virtual void DoubleClick_toOverride() {
-
-		}
-		int count = 1;
-		void RefreshPicture(Image^ newImage) {
+        public:
+        virtual void DoubleClick_toOverride() {
+        }
+        int count = 1;
+        void RefreshPicture(Image^ newImage) {
             printf("REFRESH_h 1\n");
 
-			if (pictureBox1->Image != nullptr) {
-				delete pictureBox1->Image;
-				pictureBox1->Image = nullptr;
+            if (pictureBox1->Image != nullptr) {
+                delete pictureBox1->Image;
+                pictureBox1->Image = nullptr;
                 printf("REFRESH_h if\n");
-			}
-			//pictureBox1->Image = newImage;
+            }
+            // pictureBox1->Image = newImage;
             printf("REFRESH_h 2\n");
             pictureBox1->Load();
             printf("REFRESH_h 3\n");
 
-			//RefreshWrapper();
-			
-			
-		}
-
-		void RefreshWrapper() {
-
-			if (pictureBox1->InvokeRequired) {
-				pictureBox1->Invoke(gcnew MethodInvoker(this, &MyForm::RefreshWrapper));
-
-			}
-			else {
-				pictureBox1->Refresh();
-			}
-		}
-
-        void HelloWorld() {
-
+            // RefreshWrapper();
         }
 
-	
+        void RefreshWrapper() {
+            if (pictureBox1->InvokeRequired) {
+                pictureBox1->Invoke(gcnew MethodInvoker
+                                   (this, &MyForm::RefreshWrapper));
+            } else {
+                pictureBox1->Refresh();
+            }
+        }
 
-		//
-		// TODO: pictureBox image setter
-		// this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-		//
-
-	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+    private: System::Void pictureBox1_Click(System::Object^ sender,
+                                            System::EventArgs^ e) {
+    }
 };
-
-
-	
-
-
-}
-
-//
+}  // namespace try1
